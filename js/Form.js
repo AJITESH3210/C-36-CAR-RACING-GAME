@@ -1,6 +1,6 @@
 class Form {
   constructor() {
-    this.imput = createInput("Name");
+    this.input = createInput("Name");
     this.button = createButton("Play");
     this.greeting = createElement('h3');
   }
@@ -13,7 +13,7 @@ class Form {
     
     
     this.input.position(130, 160);
-    this.buttonbutton.position(250, 200);
+    this.button.position(250, 200);
 
     this.button.mousePressed(() => {
       this.input.hide();

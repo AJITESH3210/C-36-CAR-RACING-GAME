@@ -16,17 +16,21 @@ class Game {
     });
   }
 
-  start(){
-    if(gameState === 0){
+  async start(){
+     if(gameState === 0){
       player = new Player();
-      player.getCount();
+      var playerCountRef = await database.ref("playerCount").once("value");
+      if (playerCountRef.exists()){
+        playerCount = playerCountRef.val();
+        player.getCount();
+      }
       form = new Form()
       form.display();
     }
   }
 
   play(){
-    Form.hide();
+    form.hide();
     textSize(30);
     text("Game Start", 120, 100);
     Player.getPlayerInfo();
